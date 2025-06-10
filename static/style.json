@@ -1,0 +1,48 @@
+{
+  "version": 8,
+  "name": "OSM Base Map",
+  "sources": {
+    "osm": {
+      "type": "raster",
+      "tiles": [
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 256,
+      "attribution": "© OpenStreetMap contributors"
+    },
+    "googlehybrid": {
+      "type": "raster",
+      "tiles": [
+        "https://mt0.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
+        "https://mt1.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
+        "https://mt2.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
+        "https://mt3.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}"
+      ],
+      "maxzoom": 22
+    }
+  },
+  "layers": [
+    {
+      "id": "osm-tiles",
+      "type": "raster",
+      "source": "osm",
+      "minzoom": 0,
+      "maxzoom": 19,
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "googlehybrid-tiles",
+      "type": "raster",
+      "source": "googlehybrid",
+      "minzoom": 0,
+      "maxzoom": 22
+    }
+  ],
+  "center": [
+    -64.1888,
+    -31.4201
+  ],
+  "zoom": 12
+}
